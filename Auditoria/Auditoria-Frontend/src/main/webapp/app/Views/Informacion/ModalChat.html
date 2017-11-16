@@ -1,0 +1,14 @@
+<div class="panel panel-info">
+    <div class="panel-heading "><strong>Consultar perfil de inversión</strong></div>
+    <div class="panel-body">
+        <ol class="chat">
+            <li ng-repeat="mensaje in mensajes" class="{{mensaje.remitente}}">
+                <div class="avatar"><img src="{{mensaje.imagen}}" alt="" draggable="false"/></div>
+                <div class="msg">
+                    <p>{{mensaje.contenido}}</p>
+                </div>
+            </li>
+        </ol>
+        <input ng-model="mensajeUsuario" class="textarea" type="text" placeholder="Escribe tu mensaje..." my-enter="enviarMensaje(mensajeUsuario)"/>
+    </div>
+</div>

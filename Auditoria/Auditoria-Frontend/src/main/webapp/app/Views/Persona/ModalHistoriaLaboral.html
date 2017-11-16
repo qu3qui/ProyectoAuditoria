@@ -1,0 +1,47 @@
+<div class="panel panel-info">
+    <div class="panel-heading"><strong>HISTORIA LABORAL</strong></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <label class="control-label">Número de identificación: </label>
+            </div>
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" ng-model="persona.numeroIdentificacion" disabled>
+            </div>        
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label class="control-label">Nombre: </label>
+            </div>
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" ng-model="persona.nombres" disabled>
+            </div>        
+        </div>
+
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Organización</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de fin</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="certificado in certificados">
+                    <td>{{ certificado.nombreEmpresa}}</td>
+                    <td>{{ certificado.fechaInicio}}</td>
+                    <td>{{ certificado.fechaFin}}</td>                                  
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-1 col-md-offset-5">
+                <a ng-click="cerrarModal()" class="btn btn-primary ">VOLVER</a>
+            </div>
+        </div> 
+    </div>
+</div>

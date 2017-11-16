@@ -1,0 +1,66 @@
+<div class="panel panel-info">
+
+    <div class="panel-heading "><strong>Personas</strong></div>
+    <div class="panel-body">
+        <div>
+            <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Filtrar información</button>
+            <hr>
+            <div uib-collapse="isCollapsed">
+                <div class="well well-lg">
+                    <input ng-model="filtro.conceptoDocumento" type="text">
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="filtro.conceptoEdad" uib-btn-radio="'TARJETA_IDENTIDAD'" uncheckable>Menor de edad</label>
+                        <label class="btn btn-primary" ng-model="filtro.conceptoEdad" uib-btn-radio="'CEDULA'" uncheckable>Mayor de edad</label>
+                    </div>
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="filtro.conceptoDiferencia" uib-btn-radio="'SI'" uncheckable>Con diferencias</label>
+                        <label class="btn btn-primary" ng-model="filtro.conceptoDiferencia" uib-btn-radio="'NO'" uncheckable>Sin diferencias</label>
+                        <label class="btn btn-primary" ng-model="filtro.conceptoDiferencia" uib-btn-radio="'N/A'" uncheckable>No aplica</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Número de Documento</th>
+                    <th>Cédula</th>
+                    <th>Tarjeta de identidad</th>
+                    <th>Formulario de vinculación</th>
+                    <th>Certificado de Ingresos y retenciones</th>
+                    <th>Historia laboral</th>
+                    <th>Diferencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="persona in personas|filtroDiferencia: filtro.conceptoDiferencia |filtroEdad: filtro.conceptoEdad |filtroDocumento:{numeroIdentificacion: filtro.conceptoDocumento }  |filtroPaginacion:(currentPage - 1) * pageSize | limitTo: pageSize">
+                    <td>
+                        <span class="glyphicon glyphicon-user icon-blue" aria-hidden="true"></span>
+
+                    </td>
+                    <td class="text-center">{{persona.numeroIdentificacion}}</td> 
+
+                    <td class="text-center" ng-repeat="documento in listaDocumentos">
+                        <span class="{{BuscarDocumento(documento, persona)}}"></span>
+                        <!-- <input ng-bind="estaDocumento = BuscarDocumento(documento, persona)" ng-model="estaDocumento" type="checkbox"> -->
+                    </td>
+                    
+                    <td class="text-center">
+                        <span class="{{CertificadoLaboral(persona)}}" ng-click="mostrarHistoriaLaboral(persona)"></span>
+                    </td>
+                    <td>
+                        <span class="{{DiferenciaConAfiliado(persona.comparacion)}}"></span>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-small btn-primary btn-detalles" ng-click="mostrarDetalle(persona)">Ver detalles</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+        <div class="text-center">
+            <ul uib-pagination total-items="personas.length" ng-model="currentPage" items-per-page="pageSize"></ul>
+        </div>     
+    </div>
+</div>

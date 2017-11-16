@@ -1,0 +1,171 @@
+<div class="panel panel-info">
+    <div class="panel-heading"><strong>DETALLES</strong></div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-1 col-md-offset-1 ">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </div>
+                <div class="col-md-1 col-md-offset-3">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </div>
+                <div class="col-md-1">
+
+                </div>           
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Número de identificación: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="afiliado.numeroDocumento" disabled>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="persona.numeroIdentificacion" disabled>
+                </div>
+
+                <div class="col-md-1">
+                    <span class="{{compararConAfiliado(persona.numeroIdentificacion, afiliado.numeroDocumento)}}"></span>
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Nombres: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="afiliado.nombres" disabled>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="persona.nombres" disabled>
+                </div>
+
+                <div class="col-md-1">
+                    <span class="{{compararConAfiliado(persona.nombres, afiliado.nombres)}}"></span>
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Apellidos: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="afiliado.apellidos" disabled>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="persona.apellidos" disabled>
+                </div>
+
+                <div class="col-md-1">
+                    <span class="{{compararConAfiliado(persona.apellidos, afiliado.apellidos)}}"></span>
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Género: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="afiliado.genero" disabled>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="persona.genero" disabled>
+                </div>
+
+                <div class="col-md-1">
+                    <span class="{{compararConAfiliado(persona.genero, afiliado.genero)}}"></span>
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Fecha de nacimiento: </label>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="afiliado.fechaNacimiento" disabled>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" ng-model="persona.fechaNacimiento" disabled>
+                </div>
+
+                <div class="col-md-1">
+                    <span class="{{compararConAfiliado(persona.fechaNacimiento, afiliado.fechaNacimiento)}}"></span>
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Fecha de expedición: </label>
+                </div>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="persona.fechaExpedicion" disabled>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">RH: </label>
+                </div>
+
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="persona.rh" disabled>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Estatura: </label>
+                </div>
+
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="persona.estatura" disabled>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label">Número de formulario de solicitud: </label>
+                </div>
+
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="persona.numeroSolicitudFormularioVinculacion" disabled>
+                </div>
+
+
+            </div>
+            
+             <div class="row">
+                <img class="col-md-offset-3" ng-src="{{archivoPersona}}" style="
+                     width: 50%;
+                     height: 50%;" 
+                     />
+            </div> 
+
+
+            <div class="row">
+                <div class="col-md-1 col-md-offset-5">
+                    <a ng-click="cerrarModal()" class="btn btn-primary ">VOLVER</a>
+                </div>
+            </div> 
+
+        </div>
+    </div>
+</div>

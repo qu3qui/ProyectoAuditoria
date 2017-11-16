@@ -1,0 +1,52 @@
+<div class="panel panel-info">
+
+    <div class="panel-heading "><strong>Parametrizar la extracción de archivos</strong></div>
+    <div class="panel-body">
+        <strong>Seleccione a continuación el medio de extracción de archivos:</strong>
+        <br><br>
+
+        <div class="panel-body">
+            <select ng-model="parametro.tipoExtraccion" class="form-control">
+                <option value="default">--Seleccione un método de extracción--</option>
+                <option value="FTP">Extraer desde FTP</option>
+                <option value="CARPETA_COMPARTIDA">Extraer desde Carpeta compartida</option>
+            </select>
+            
+            <div class="panel-body" ng-show="parametro.tipoExtraccion !== 'default'">
+                <!--<label>Usuario</label>-->
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Usuario</span>
+                    <input type="text" class="form-control" placeholder="Nombre de usuario" ng-model="parametro.usuario">
+                </div>
+                <br>
+                <!--<label>Contraseña</label>-->
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Contraseña</span>
+                    <input type="text" class="form-control" placeholder="****" ng-model="parametro.password">
+                </div>
+                <br>
+                <!--<label>Servidor</label>-->
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Servidor</span>
+                    <input type="text" class="form-control" placeholder="ftp://ftp.suempresa.com/" ng-model="parametro.servidor">
+                </div>
+                <br>
+                <!--<label>Puerto</label>-->
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Puerto</span>
+                    <input type="number" class="form-control" placeholder="8080" ng-model="parametro.puerto">
+                </div>
+                <br>
+                <!--<label>Directorio</label>-->
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Directorio</span>
+                    <input type="text" class="form-control" placeholder="D:\\documentos\formularios" ng-model="parametro.directorio">
+                </div>
+                <br>
+                <button ng-click="actualizar()">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

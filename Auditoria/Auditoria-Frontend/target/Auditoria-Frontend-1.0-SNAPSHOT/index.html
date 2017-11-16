@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Auditoría de Imágenes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Referencias Angular -->
+        <script src="libs/angularjs/angular.min.js"></script>
+        <script src="libs/angularjs/angular-resource.min.js"></script>
+        <script src="libs/angularjs/angular-cookies.min.js"></script>
+        <script src="libs/angularjs/angular-animate.min.js"></script>
+        <script src="libs/angularjs/angular-sanitize.min.js"></script>
+        <script src="libs/angularjs/angular-route.min.js"></script>
+        <script src="libs/angularjs/angular-messages.min.js"></script>
+
+        <!-- Referencia ui Bootstrap -->
+        <script src="libs/ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <!-- Referencia Bootstrap -->
+        <script src="libs/jquery/jquery-3.1.1.min.js"></script>
+        <script src="libs/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <link  href="libs/ui-bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link  href="libs/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Referencia SweetAlert -->
+        <script src="libs/sweetalert/sweetalert.min.js"></script>
+        <link  href="libs/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+
+        <!-- Referencia para color de los componentes -->
+        <link href="libs/CSS/color.css" rel="stylesheet" type="text/css">
+        <link href="libs/CSS/chat.css" rel="stylesheet" type="text/css">
+
+
+        <!-- Modulo principal -->
+        <script src="app/app.js"></script>
+
+        <!--Rutas-->
+        <script src="app/routes.js"></script>
+
+        <!--Filtros -->
+        <script src="app/Filters/filtroPaginacion.js"></script>
+        <script src="app/Filters/filtroDocumento.js"></script>
+        <script src="app/Filters/filtroDiferencia.js"></script>
+        <script src="app/Filters/filtroEdad.js"></script>
+        
+        <!--Controlador Index-->
+        <script src="app/Controllers/indexController.js"></script> 
+
+        <!-- Controladores Persona-->
+        <script src="app/Controllers/Persona/PersonaListaController.js"></script> 
+        <script src="app/Controllers/Persona/ModalDetalleController.js"></script>
+        <script src="app/Controllers/Persona/ModalHistoriaLaboralController.js"></script>
+
+        <!-- Controladores Parametro-->
+        <script src="app/Controllers/Parametro/ParametroExtraccionController.js"></script> 
+
+        <!-- Controlador Chat-->
+        <script src="app/Controllers/Informacion/ModalChatController.js"></script>
+        
+        <!--Provider -->
+        <script src="app/Services/Providers/Persona/PersonaRemoteResourceProvider.js"></script>
+        <script src="app/Services/Providers/Parametro/ParametroRemoteResourceProvider.js"></script>
+        <script src="app/Services/Providers/Informacion/InformacionRemoteResourceProvider.js"></script>
+
+        <!--Factory provider -->
+        <script src="app/Services/Providers/Persona/PersonaRemoteResource.js"></script>
+        <script src="app/Services/Providers/Parametro/ParametroRemoteResource.js"></script>
+        <script src="app/Services/Providers/Informacion/InformacionRemoteResource.js"></script>
+        
+        <!-- Referencia a Angular Loading Bar -->
+        <link rel='stylesheet' href='libs/Angular-loading-bar/loading-bar.css' type='text/css' media='all' />
+        <script type='text/javascript' src='libs/Angular-loading-bar/loading-bar.js'></script>         
+
+        <!-- Referencia a la plantilla -->
+        <link href="libs/corlate-template/css/font-awesome.min.css" rel="stylesheet">
+        <link href="libs/corlate-template/css/animate.min.css" rel="stylesheet">
+        <link href="libs/corlate-template/css/prettyPhoto.css" rel="stylesheet">
+        <link href="libs/corlate-template/css/main.css" rel="stylesheet">
+        <link href="libs/corlate-template/css/responsive.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->       
+        <link rel="shortcut icon" href="libs/corlate-template/images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="libs/corlate-template/images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="libs/corlate-template/images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="libs/corlate-template/images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="libs/corlate-template/images/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+    <body ng-app="Audimagenes" ng-controller="indexController">
+        <header id="header">
+            <nav class="navbar navbar-inverse" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img style="width: 77%" src="libs/corlate-template/images/audimagenes-v2-blanco.png" alt="logo"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse navbar-right">
+                        <form>
+                            <input type="text" ng-model="user">
+                            <input type="text" ng-model="password">
+                            <input type="button" ng-click="login()" value="Login">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container container-panel" ng-view=""></div>
+        
+        <footer id="footer" class="navbar navbar-default navbar-fixed-bottom center">
+            <div class="container">
+                <div class="row">
+                    <div class="center-block">
+                        <a target="_blank" href="http://www.heinsohn.com.co/" title="">
+                            <img width="15%" alt="" src="libs/corlate-template/images/LogoHorizontal_Heinsohn_Fondo-Blanco.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center-block">
+                        &copy; 2016 <a target="_blank" href="http://www.heinsohn.com.co/" title="">Heinsohn</a>. Todos los derechos reservados.
+                    </div>
+                </div>
+            </div>
+        </footer><!--/#footer-->
+        <script src="libs/corlate-template/js/jquery.js"></script>
+        <script src="libs/corlate-template/js/bootstrap.min.js"></script>
+        <script src="libs/corlate-template/js/jquery.prettyPhoto.js"></script>
+        <script src="libs/corlate-template/js/jquery.isotope.min.js"></script>
+        <script src="libs/corlate-template/js/main.js"></script>
+        <script src="libs/corlate-template/js/wow.min.js"></script>
+    </body>
+    
+    <script>
+                                $(document).ready(function () {
+                                    $(".enlace").click(function () {
+                                        $(".enlace").removeClass("active");
+                                        $(this).addClass("active");
+                                    });
+                                });
+    </script>
+</html>
